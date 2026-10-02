@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  GitHub Pages 个人主页 · 单页静态站点（无任何外部依赖，离线可用）
+  需要改的地方我都用「✏️ 改这里」标出来了，配合 README.md 一起看。
+  ============================================================
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✏️ 改这里：网页标题（浏览器标签页显示的文字） -->
+  <title>你的名字 | 个人主页</title>
+
+  <!-- ✏️ 改这里：搜索/分享时显示的描述、关键词、作者 -->
+  <meta name="description" content="你好，我是你的名字，一名热爱编程的开发者。这里是我的个人主页，记录我的技能、项目与联系方式。" />
+  <meta name="keywords" content="你的名字, 个人主页, 前端开发, 后端开发, 程序员, GitHub Pages" />
+  <meta name="author" content="你的名字" />
+
+  <!-- 分享到微信/QQ/Twitter 时的卡片信息（og:url 需要改成你发布后的网址） -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="你的名字 | 个人主页" />
+  <meta property="og:description" content="热爱编程的开发者，欢迎来看我的项目。" />
+  <meta property="og:url" content="https://your-name.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b1020" />
+
+  <!-- 网页小图标：不想要可以直接删掉这一行 -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- 提前读取主题设置，避免刷新时闪一下白屏 -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <!-- 背景装饰光斑（纯装饰，不影响内容） -->
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <!-- ===================== 顶部导航 ===================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- ✏️ 改这里：左上角 Logo 里的字母或符号 -->
+      <a class="logo" href="#hero" aria-label="回到顶部">
+        <span class="logo-mark">Y</span>
+        <span class="logo-text">你的名字</span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="主导航">
+        <a class="nav-link" href="#about">关于我</a>
+        <a class="nav-link" href="#skills">技能</a>
+        <a class="nav-link" href="#projects">项目</a>
+        <a class="nav-link" href="#timeline">经历</a>
+        <a class="nav-link" href="#contact">联系</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="切换深色/浅色主题" title="切换主题">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g stroke-linecap="round"><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.2 5.2l1.9 1.9M16.9 16.9l1.9 1.9M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9"/></g></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="primaryNav">
+          <span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== 首屏 ===================== -->
+    <section class="hero section" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-text reveal">
+          <p class="hero-hello">👋 你好，欢迎来到我的主页</p>
+          <!-- ✏️ 改这里：你的名字 / 昵称 -->
+          <h1 class="hero-name">你的名字</h1>
+
+          <!-- ✏️ 改这里：在 assets/js/main.js 顶部的 roles 数组里改这些身份 -->
+          <p class="hero-roles">
+            我是一名 <span class="typed" id="typed" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+          </p>
+
+          <!-- ✏️ 改这里：一句话自我介绍 -->
+          <p class="hero-desc">
+            热爱把想法变成可以运行的东西。平时写 Web 前端与后端，
+            喜欢折腾新工具、写技术笔记，也乐于参与开源。
+            目前正在寻找更好的自己，以及更有意思的项目。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">
+              看看我的项目
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </a>
+            <!-- ✏️ 改这里：如果有在线简历，把 href 换成简历链接；不需要就删掉这个按钮 -->
+            <a class="btn btn-ghost" href="#contact">联系我</a>
+          </div>
+
+          <ul class="social-list">
+            <!-- ✏️ 改这里：把 your-name / your@email.com 换成你自己的 -->
+            <li>
+              <a href="https://github.com/your-name" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.4 9.4 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:your@email.com" aria-label="邮箱">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+              </a>
+            </li>
+            <li>
+              <!-- ✏️ 改这里：换成你的博客 / 掘金 / 知乎 / B站 等链接 -->
+              <a href="https://your-blog.example.com" target="_blank" rel="noopener" aria-label="博客">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="M3 12h18M12 2.8c2.4 2.6 3.6 5.7 3.6 9.2S14.4 18.6 12 21.2c-2.4-2.6-3.6-5.7-3.6-9.2S9.6 5.4 12 2.8Z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 头像区：把你的照片命名为 avatar.jpg 放到 assets/img/ 下 -->
+        <div class="hero-avatar reveal" aria-hidden="true">
+          <div class="avatar-ring">
+            <img src="assets/img/avatar.svg" alt="" width="260" height="260" />
+          </div>
+          <div class="avatar-badge">
+            <span class="dot"></span> 正在学习 &amp; 输出中
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#about" aria-label="向下滚动">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===================== 关于我 ===================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker">About me</p>
+          <h2 class="section-title">关于我</h2>
+          <p class="section-sub">用几段话，让别人快速认识你。</p>
+        </header>
+
+        <div class="about-grid">
+          <div class="card about-text reveal">
+            <!-- ✏️ 改这里：关于我的正文，可自由增删段落 -->
+            <p>
+              我是<strong>你的名字</strong>，一名来自<strong>你的城市</strong>的开发者。
+              从<strong>20XX 年</strong>开始接触编程，最初只是想让自己的小工具跑起来，
+              后来慢慢喜欢上了「把复杂问题拆开、再优雅地拼回去」的过程。
+            </p>
+            <p>
+              我目前主要在做 <strong>Web 前后端开发</strong>，熟悉
+              <strong>JavaScript / TypeScript / Node.js / Python</strong>，
+              也在持续学习云原生、数据库与工程化相关的东西。
+              工作之外，我会写技术笔记、做点小开源，偶尔打游戏和跑步。
+            </p>
+            <p>
+              如果你觉得我的项目有意思，或者想聊聊技术、合作、交个朋友，
+              欢迎随时<strong>给我发邮件</strong>，我基本都会回复。
+            </p>
+          </div>
+
+          <div class="about-cards">
+            <div class="card mini-card reveal">
+              <span class="mini-icon">🎯</span>
+              <h3>我在做什么</h3>
+              <p>专注 Web 全栈开发，正在打磨一个个人效率类开源项目。</p>
+            </div>
+            <div class="card mini-card reveal">
+              <span class="mini-icon">📚</span>
+              <h3>我在学什么</h3>
+              <p>TypeScript 类型体操、Rust 入门、以及系统设计与性能优化。</p>
+            </div>
+            <div class="card mini-card reveal">
+              <span class="mini-icon">🤝</span>
+              <h3>我想找什么</h3>
+              <p>有意思的协作机会、开源伙伴，以及愿意一起做产品的朋友。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 技能 ===================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker">Skills</p>
+          <h2 class="section-title">技能栈</h2>
+          <p class="section-sub">如实填写就好，不用为了好看而虚报。</p>
+        </header>
+
+        <div class="skills-layout">
+          <!-- ✏️ 改这里：分组名与标签，随意增删 -->
+          <div class="skill-groups">
+            <div class="card skill-card reveal">
+              <h3>前端</h3>
+              <ul class="tag-list">
+                <li>HTML5 / CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>TypeScript</li>
+                <li>Vue 3</li>
+                <li>React</li>
+                <li>Vite</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+
+            <div class="card skill-card reveal">
+              <h3>后端与数据库</h3>
+              <ul class="tag-list">
+                <li>Node.js</li>
+                <li>Express / Nest</li>
+                <li>Python</li>
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>Redis</li>
+              </ul>
+            </div>
+
+            <div class="card skill-card reveal">
+              <h3>工具与工程化</h3>
+              <ul class="tag-list">
+                <li>Git / GitHub</li>
+                <li>Docker</li>
+                <li>Linux</li>
+                <li>Nginx</li>
+                <li>CI / CD</li>
+                <li>Jest / Vitest</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- ✏️ 改这里：熟练度条，data-progress 填 0-100 的整数 -->
+          <div class="card skill-bars reveal">
+            <h3>熟练度自评</h3>
+            <div class="bar-item">
+              <div class="bar-label"><span>JavaScript / TypeScript</span><em>85%</em></div>
+              <div class="bar-track"><span class="bar-fill" data-progress="85"></span></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label"><span>Vue / React</span><em>80%</em></div>
+              <div class="bar-track"><span class="bar-fill" data-progress="80"></span></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label"><span>Node.js 后端</span><em>75%</em></div>
+              <div class="bar-track"><span class="bar-fill" data-progress="75"></span></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label"><span>数据库与部署</span><em>70%</em></div>
+              <div class="bar-track"><span class="bar-fill" data-progress="70"></span></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label"><span>UI / 交互设计</span><em>65%</em></div>
+              <div class="bar-track"><span class="bar-fill" data-progress="65"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 项目 ===================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker">Projects</p>
+          <h2 class="section-title">我的项目</h2>
+          <p class="section-sub">挑几个你最满意的放上来，附上仓库或演示地址。</p>
+        </header>
+
+        <!-- ✏️ 改这里：筛选按钮要与下面卡片的 data-tags 对应 -->
+        <div class="filter-bar reveal" role="tablist" aria-label="项目筛选">
+          <button class="filter-btn is-active" type="button" data-filter="all">全部</button>
+          <button class="filter-btn" type="button" data-filter="web">Web</button>
+          <button class="filter-btn" type="button" data-filter="tool">工具</button>
+          <button class="filter-btn" type="button" data-filter="open-source">开源</button>
+        </div>
+
+        <!-- ✏️ 改这里：复制一个 <article class="card project-card"> 即可新增项目 -->
+        <div class="project-grid" id="projectGrid">
+          <article class="card project-card reveal" data-tags="web open-source">
+            <div class="project-top">
+              <span class="project-emoji">🚀</span>
+              <div class="project-links">
+                <a href="https://github.com/your-name/your-repo" target="_blank" rel="noopener" aria-label="源码">源码</a>
+                <a href="https://your-demo.example.com" target="_blank" rel="noopener" aria-label="在线演示">演示</a>
+              </div>
+            </div>
+            <h3>项目名称一</h3>
+            <p>一句话说明它解决什么问题、你负责了什么、有什么亮点（例如性能提升 40%、支持 1000+ 用户）。</p>
+            <ul class="tag-list small">
+              <li>Vue 3</li><li>TypeScript</li><li>Vite</li>
+            </ul>
+          </article>
+
+          <article class="card project-card reveal" data-tags="tool">
+            <div class="project-top">
+              <span class="project-emoji">🛠️</span>
+              <div class="project-links">
+                <a href="https://github.com/your-name/your-repo" target="_blank" rel="noopener" aria-label="源码">源码</a>
+              </div>
+            </div>
+            <h3>项目名称二</h3>
+            <p>一个提升日常效率的小工具，支持快捷键、批量处理与跨平台运行。</p>
+            <ul class="tag-list small">
+              <li>Node.js</li><li>CLI</li>
+            </ul>
+          </article>
+
+          <article class="card project-card reveal" data-tags="web">
+            <div class="project-top">
+              <span class="project-emoji">📊</span>
+              <div class="project-links">
+                <a href="https://github.com/your-name/your-repo" target="_blank" rel="noopener" aria-label="源码">源码</a>
+                <a href="https://your-demo.example.com" target="_blank" rel="noopener" aria-label="在线演示">演示</a>
+              </div>
+            </div>
+            <h3>项目名称三</h3>
+            <p>带数据可视化的管理系统，包含权限控制、报表导出与响应式布局。</p>
+            <ul class="tag-list small">
+              <li>React</li><li>Express</li><li>MySQL</li>
+            </ul>
+          </article>
+
+          <article class="card project-card reveal" data-tags="open-source tool">
+            <div class="project-top">
+              <span class="project-emoji">📦</span>
+              <div class="project-links">
+                <a href="https://github.com/your-name/your-repo" target="_blank" rel="noopener" aria-label="源码">源码</a>
+              </div>
+            </div>
+            <h3>项目名称四</h3>
+            <p>发布到包管理器的开源库，被若干项目使用，欢迎提 Issue 和 PR。</p>
+            <ul class="tag-list small">
+              <li>TypeScript</li><li>npm</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 经历 ===================== -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker">Experience</p>
+          <h2 class="section-title">我的经历</h2>
+          <p class="section-sub">如果暂时没有工作经历，写学习经历、比赛、社团也完全可以。</p>
+        </header>
+
+        <!-- ✏️ 改这里：增删 <li class="timeline-item"> 即可，时间倒序更好读 -->
+        <ol class="timeline">
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <time>2023.07 — 至今</time>
+            <h3>公司 / 团队名称 · 职位</h3>
+            <p>负责 XX 系统的前端架构与性能优化，主导 YY 功能从 0 到 1 上线，把首屏加载从 3.2s 降到 1.1s。</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <time>2022.02 — 2023.06</time>
+            <h3>公司 / 团队名称 · 职位</h3>
+            <p>参与 ZZ 平台开发，独立完成数据看板模块，配合团队把线上缺陷率降低约 30%。</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <time>2018.09 — 2022.06</time>
+            <h3>学校名称 · 专业 / 学历</h3>
+            <p>在校期间担任 XX 社团技术负责人，做过 YY 项目，拿过 ZZ 奖项。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== 联系 ===================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="card contact-card reveal">
+          <div class="contact-text">
+            <p class="section-kicker">Contact</p>
+            <h2 class="section-title">聊聊吧 👋</h2>
+            <p class="section-sub">
+              无论是技术交流、项目合作，还是单纯想交个朋友，都欢迎来信。
+              我通常在 1～2 天内回复。
+            </p>
+            <div class="contact-actions">
+              <!-- ✏️ 改这里：换成你的真实邮箱 -->
+              <a class="btn btn-primary" href="mailto:your@email.com">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+                your@email.com
+              </a>
+              <button class="btn btn-ghost" id="copyEmail" type="button" data-email="your@email.com">复制邮箱</button>
+            </div>
+          </div>
+
+          <ul class="contact-list">
+            <!-- ✏️ 改这里：社交账号，不需要的行直接删掉 -->
+            <li><span>GitHub</span><a href="https://github.com/your-name" target="_blank" rel="noopener">@your-name</a></li>
+            <li><span>博客</span><a href="https://your-blog.example.com" target="_blank" rel="noopener">your-blog.example.com</a></li>
+            <li><span>掘金 / 知乎</span><a href="https://juejin.cn" target="_blank" rel="noopener">你的主页</a></li>
+            <li><span>微信</span><em>your-wechat-id</em></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== 页脚 ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2025</span> 你的名字 · 用心折腾，持续输出</p>
+      <p class="footer-sub">
+        由 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> 托管 ·
+        <a href="https://github.com/your-name/your-name.github.io" target="_blank" rel="noopener">本站源码</a>
+      </p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
